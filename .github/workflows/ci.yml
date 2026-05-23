@@ -50,7 +50,7 @@ jobs:
 
       - name: Clang-Format Check
         run: |
-          FILES=$(git ls-files "*.h" "*.hpp" "*.hh" "*.hxx" "*.c" "*.cc" "*.cpp" "*.cxx")
+          FILES=$(git ls-files "*.h" "*.hpp" "*.hh" "*.hxx" "*.c" "*.cc" "*.cpp" "*.cxx" | grep -v "^tests/catch2/")
           if [ -n "$FILES" ]; then
             echo "$FILES" | xargs clang-format -style=file -Werror -n
           else
