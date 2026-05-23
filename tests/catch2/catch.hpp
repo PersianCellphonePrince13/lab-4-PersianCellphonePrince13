@@ -5363,7 +5363,8 @@ template <typename Integer> class RandomIntegerGenerator final : public IGenerat
     }
 };
 
-//
+// TODO: Ideally this would be also constrained against the various char types,
+//       but I don't expect users to run into that in practice.
 template <typename T>
 typename std::enable_if<std::is_integral<T>::value && !std::is_same<T, bool>::value, GeneratorWrapper<T>>::type random(
     T a, T b)
@@ -19748,7 +19749,7 @@ void XmlReporter::testCaseEnded(TestCaseStats const& testCaseStats)
 void XmlReporter::testGroupEnded(TestGroupStats const& testGroupStats)
 {
     StreamingReporterBase::testGroupEnded(testGroupStats);
-    // TODO: Check testGroupStats.aborting and act accordingly.
+
     m_xml.scopedElement("OverallResults")
         .writeAttribute("successes", testGroupStats.totals.assertions.passed)
         .writeAttribute("failures", testGroupStats.totals.assertions.failed)

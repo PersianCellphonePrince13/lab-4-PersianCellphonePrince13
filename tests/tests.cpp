@@ -21,13 +21,10 @@ void cleanup_test_files()
 
 TEST_CASE("ResourceError is thrown when opening non-existent file", "[ResourceError]")
 {
-    try
-    {
+    try {
         FileHandle file("");
         REQUIRE(false);
-    }
-    catch (const ResourceError&)
-    {
+    } catch (const ResourceError&) {
         REQUIRE(true);
     }
 }
@@ -182,3 +179,4 @@ struct GlobalCleanup
 };
 
 GlobalCleanup cleanup;
+

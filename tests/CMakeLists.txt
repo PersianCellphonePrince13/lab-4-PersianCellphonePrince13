@@ -12,6 +12,7 @@ add_executable(resource_tests
         catch2/catch.hpp
         catch_main.cpp
         catch_main.cpp
+        catch2/catch.hpp
 )
 
 target_link_libraries(resource_tests PRIVATE resource_core project_warnings Catch2::Catch2WithMain)
